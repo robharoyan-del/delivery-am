@@ -1,0 +1,147 @@
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 100px;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 16px;
+  margin-bottom: 40px;
+  max-width: 560px;
+}
+
+/* ── Grid — 3 cols on desktop, 2 on tablet, 1 on mobile ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  padding: 22px;
+  transition: border-color 0.2s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.card:hover { border-color: rgba(0,212,255,0.25); }
+
+.featured {
+  border-color: rgba(0,212,255,0.35);
+  background: linear-gradient(145deg, var(--surface) 0%, rgba(0,212,255,0.04) 100%);
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(0,212,255,0.25);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+/* ── Card head ── */
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flag {
+  width: 40px;
+  height: 27px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.from {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.country {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── Method table ── */
+.methodTable {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.methodRow {
+  display: grid;
+  grid-template-columns: 20px 68px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--surface2);
+  transition: background 0.15s;
+}
+.methodRow:hover { background: #1e1e28; }
+
+.methodIcon  { font-size: 13px; text-align: center; }
+.methodName  { font-size: 13px; font-weight: 500; color: var(--text); }
+.methodPrice {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.methodUnit  { font-size: 11px; font-weight: 400; color: var(--muted); margin-left: 2px; }
+.methodDays  { font-size: 11px; color: var(--accent); text-align: right; white-space: nowrap; }
+
+/* ── Footer note ── */
+.note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .grid    { grid-template-columns: 1fr; }
+  .section { padding: 0 24px 60px; }
+}
