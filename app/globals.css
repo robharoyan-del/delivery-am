@@ -137,6 +137,12 @@ body {
   padding: 100px 48px;
 }
 
+@media (max-width: 768px) {
+  .section-container {
+    padding: 60px 20px;
+  }
+}
+
 .section-label {
   font-size: 11px;
   color: var(--accent);

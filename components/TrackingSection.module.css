@@ -144,3 +144,17 @@
     padding: 0 24px 60px;
   }
 }
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px 20px;
+  }
+
+  .inputRow {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

@@ -119,3 +119,24 @@
     gap: 48px;
   }
 }
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 20px;
+    gap: 32px;
+  }
+
+  .stats {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+
+  .cta > * {
+    width: 100%;
+    text-align: center;
+  }
+}

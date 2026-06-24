@@ -18,6 +18,7 @@ export default function Navbar() {
     { label: t('nav_shops'),        href: '/#shops'        },
   ]
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -52,6 +53,13 @@ export default function Navbar() {
       </ul>
 
       <div className={styles.actions}>
+        <button
+          className={styles.menuBtn}
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? '✕' : '☰'}
+        </button>
         <LanguageSwitcher />
         {loading ? (
           <div className={styles.loadingPill} />
@@ -109,6 +117,25 @@ export default function Navbar() {
           </>
         )}
       </div>
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          <ul className={styles.mobileLinks}>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          {!user && (
+            <div className={styles.mobileAuthBtns}>
+              <button className="btn-large-ghost" onClick={() => { openModal('login'); setMenuOpen(false) }}>{t('nav_login')}</button>
+              <button className="btn-large" onClick={() => { openModal('register'); setMenuOpen(false) }}>{t('nav_get_started')}</button>
+            </div>
+          )}
+        </div>
+      )}
     </nav>
   )
 }
