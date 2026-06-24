@@ -1,72 +1,55 @@
+'use client'
+
+import { useLanguage } from '@/lib/i18n'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import styles from '../static-page.module.css'
 
-export const metadata = {
-  title: 'Privacy Policy — Delivery.am',
-}
-
 export default function PrivacyPage() {
+  const { t } = useLanguage()
+
   return (
     <>
       <Navbar />
       <main className={styles.main}>
         <div className={styles.hero}>
           <div className={styles.heroInner}>
-            <p className={styles.eyebrow}>Legal</p>
-            <h1 className={styles.title}>Privacy Policy</h1>
-            <p className={styles.subtitle}>
-              How we collect, use, and protect your personal information.
-            </p>
+            <p className={styles.eyebrow}>{t('privacy_eyebrow')}</p>
+            <h1 className={styles.title}>{t('privacy_title')}</h1>
+            <p className={styles.subtitle}>{t('privacy_subtitle')}</p>
           </div>
         </div>
 
         <div className={styles.content}>
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Information We Collect</h2>
-            <p className={styles.text}>
-              When you register with Delivery.am, we collect your name, email address, and optionally your phone number. When you add a parcel, we collect shipment details including tracking numbers, declared values, and country of origin.
-            </p>
-            <p className={styles.text}>
-              For identity verification (KYC), we collect government-issued ID documents and selfie photos. These are stored securely and used solely for verification purposes in compliance with Armenian customs regulations.
-            </p>
+            <h2 className={styles.sectionTitle}>{t('privacy_s1_title')}</h2>
+            <p className={styles.text}>{t('privacy_s1_p1')}</p>
+            <p className={styles.text}>{t('privacy_s1_p2')}</p>
           </div>
 
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>How We Use Your Information</h2>
-            <p className={styles.text}>
-              We use your information to provide our parcel forwarding service, process customs declarations, send shipment status updates, and improve our platform. We do not sell your personal data to third parties.
-            </p>
-            <p className={styles.text}>
-              Your warehouse address is generated from your user ID and is used to identify your parcels at our warehouse facilities. Your declared parcel values are used for customs duty calculation as required by Armenian law.
-            </p>
+            <h2 className={styles.sectionTitle}>{t('privacy_s2_title')}</h2>
+            <p className={styles.text}>{t('privacy_s2_p1')}</p>
+            <p className={styles.text}>{t('privacy_s2_p2')}</p>
           </div>
 
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Data Storage & Security</h2>
-            <p className={styles.text}>
-              Your data is stored on secure servers provided by Supabase, located in the EU. All data is encrypted in transit using TLS and at rest using AES-256 encryption. KYC documents are stored in a private, access-controlled storage bucket accessible only to you and authorized staff.
-            </p>
-            <p className={styles.text}>
-              We retain your account data for as long as your account is active. You may request deletion of your account and all associated data at any time by contacting support@delivery.am.
-            </p>
+            <h2 className={styles.sectionTitle}>{t('privacy_s3_title')}</h2>
+            <p className={styles.text}>{t('privacy_s3_p1')}</p>
+            <p className={styles.text}>{t('privacy_s3_p2')}</p>
           </div>
 
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Cookies</h2>
-            <p className={styles.text}>
-              We use only essential cookies required for authentication and session management. We do not use advertising or tracking cookies.
-            </p>
+            <h2 className={styles.sectionTitle}>{t('privacy_s4_title')}</h2>
+            <p className={styles.text}>{t('privacy_s4_p1')}</p>
           </div>
 
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Your Rights</h2>
-            <p className={styles.text}>
-              You have the right to access, correct, or delete your personal data at any time. You can update most information directly in your account settings. For data deletion requests or other inquiries, contact us at support@delivery.am.
-            </p>
+            <h2 className={styles.sectionTitle}>{t('privacy_s5_title')}</h2>
+            <p className={styles.text}>{t('privacy_s5_p1')}</p>
           </div>
 
-          <p className={styles.updated}>Last updated: June 2026</p>
+          <p className={styles.updated}>{t('privacy_updated')}</p>
         </div>
       </main>
       <Footer />

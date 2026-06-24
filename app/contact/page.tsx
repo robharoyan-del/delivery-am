@@ -1,19 +1,20 @@
 'use client'
 
 import { useState } from 'react'
+import { useLanguage } from '@/lib/i18n'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import styles from '../static-page.module.css'
 
 export default function ContactPage() {
-  const [name,     setName]     = useState('')
-  const [email,    setEmail]    = useState('')
-  const [message,  setMessage]  = useState('')
-  const [sent,     setSent]     = useState(false)
+  const { t } = useLanguage()
+  const [name,    setName]    = useState('')
+  const [email,   setEmail]   = useState('')
+  const [message, setMessage] = useState('')
+  const [sent,    setSent]    = useState(false)
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    // In production, wire this to an email service or Supabase edge function
     setSent(true)
     setName(''); setEmail(''); setMessage('')
   }
@@ -21,31 +22,31 @@ export default function ContactPage() {
   const contacts = [
     {
       icon: '📞',
-      title: 'Phone',
+      title: t('contact_phone_title'),
       value: '060 111 222',
       href: 'tel:+37460111222',
-      desc: 'Monday – Saturday, 9am – 6pm',
+      desc: t('contact_phone_desc'),
     },
     {
       icon: '✉️',
-      title: 'Email',
+      title: t('contact_email_title'),
       value: 'support@delivery.am',
       href: 'mailto:support@delivery.am',
-      desc: 'We respond within 24 hours',
+      desc: t('contact_email_desc'),
     },
     {
       icon: '📍',
-      title: 'Address',
+      title: t('contact_address_title'),
       value: 'Yerevan, Armenia',
       href: 'https://maps.google.com/?q=Yerevan,Armenia',
-      desc: 'Main office & pickup location',
+      desc: t('contact_address_desc'),
     },
     {
       icon: '⏰',
-      title: 'Working hours',
-      value: 'Mon – Sat, 9:00 – 18:00',
+      title: t('contact_hours_title'),
+      value: t('contact_hours_value'),
       href: null,
-      desc: 'Armenian time (UTC+4)',
+      desc: t('contact_hours_desc'),
     },
   ]
 
@@ -55,16 +56,13 @@ export default function ContactPage() {
       <main className={styles.main}>
         <div className={styles.hero}>
           <div className={styles.heroInner}>
-            <p className={styles.eyebrow}>Support</p>
-            <h1 className={styles.title}>Contact Us</h1>
-            <p className={styles.subtitle}>
-              Have a question about your shipment or our service? We're here to help.
-            </p>
+            <p className={styles.eyebrow}>{t('contact_eyebrow')}</p>
+            <h1 className={styles.title}>{t('contact_title')}</h1>
+            <p className={styles.subtitle}>{t('contact_subtitle')}</p>
           </div>
         </div>
 
         <div className={styles.content}>
-          {/* Contact cards */}
           <div className={styles.grid}>
             {contacts.map(c => (
               <div key={c.title} className={styles.card}>
@@ -82,30 +80,27 @@ export default function ContactPage() {
             ))}
           </div>
 
-          {/* Contact form */}
           <div className={styles.formCard}>
-            <h2 className={styles.formTitle}>Send us a message</h2>
+            <h2 className={styles.formTitle}>{t('contact_form_title')}</h2>
 
             {sent ? (
-              <p className={styles.successMsg}>
-                ✓ Message sent! We'll get back to you within 24 hours.
-              </p>
+              <p className={styles.successMsg}>{t('contact_success')}</p>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className={styles.field}>
-                  <label className={styles.label} htmlFor="c-name">Your name</label>
+                  <label className={styles.label} htmlFor="c-name">{t('contact_name_label')}</label>
                   <input
                     id="c-name"
                     className={styles.input}
                     type="text"
-                    placeholder="Full name"
+                    placeholder={t('contact_name_placeholder')}
                     value={name}
                     onChange={e => setName(e.target.value)}
                     required
                   />
                 </div>
                 <div className={styles.field}>
-                  <label className={styles.label} htmlFor="c-email">Email address</label>
+                  <label className={styles.label} htmlFor="c-email">{t('contact_email_label')}</label>
                   <input
                     id="c-email"
                     className={styles.input}
@@ -117,18 +112,18 @@ export default function ContactPage() {
                   />
                 </div>
                 <div className={styles.field}>
-                  <label className={styles.label} htmlFor="c-msg">Message</label>
+                  <label className={styles.label} htmlFor="c-msg">{t('contact_msg_label')}</label>
                   <textarea
                     id="c-msg"
                     className={styles.textarea}
-                    placeholder="Describe your question or issue..."
+                    placeholder={t('contact_msg_placeholder')}
                     value={message}
                     onChange={e => setMessage(e.target.value)}
                     required
                   />
                 </div>
                 <button className={styles.submitBtn} type="submit">
-                  Send message →
+                  {t('contact_submit')}
                 </button>
               </form>
             )}

@@ -4,6 +4,7 @@
   padding: 20px 48px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 48px;
   overflow-x: auto;
   background: var(--surface);
