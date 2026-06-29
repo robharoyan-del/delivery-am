@@ -3,6 +3,7 @@ import './globals.css'
 import { AuthProvider } from '@/lib/auth-context'
 import { LanguageProvider } from '@/lib/i18n'
 import AuthModal from '@/components/AuthModal'
+import { ChatButton } from '@/src/components/chat'
 
 export const metadata: Metadata = {
   title: 'Delivery.am — Shop Worldwide, Receive in Armenia',
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <AuthProvider>
             {children}
             <AuthModal />
+            <ChatButton />
           </AuthProvider>
         </LanguageProvider>
       </body>
