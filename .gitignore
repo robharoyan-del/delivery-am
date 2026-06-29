@@ -26,3 +26,6 @@ playwright-report/
 
 # Agents
 .agents/
+
+.vercel
+.env*
